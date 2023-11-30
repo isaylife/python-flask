@@ -1,0 +1,76 @@
+a {
+    color: inherit;
+    text-decoration: none;
+}
+a:hover{
+     color: inherit;
+    text-decoration: none;
+}
+.article_mange {
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #b3d7ff;
+}
+.article_mange a {
+    padding: 5px;
+}
+.body-info{
+    padding-top: 10px;
+}
+.acticle_info{
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f3f3f3;
+}
+.user_info img{
+    height: 40px;
+    width: 40px;
+}
+.img-thumbnail {
+    border-radius: 5px;
+    height: 40px;
+    width: 40px;
+}
+/*首页文章*/
+.body-info .card-title{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.body-info .card-content{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+/*#主页文章作者和时间*/
+.user-info{
+    margin: 20px;
+}
+/*文章添加*/
+.article-add{
+}
+/*文章详情*/
+.article-info{
+    padding: 15px;
+    background-color: pink;
+}
+.article-title {
+    background-color: #D0D0D0;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    overflow: hidden;
+}
+.article-info .content{
+    text-indent: 2em;
+    padding: 20px;
+    background-color: #D0D0D0;
+    margin-top: 15px;
+    font-size: 24px;
+}
+.article-user{
+    font-weight: normal;
+    font-size: 18px;
+    display: block;
+    float: right;
+}

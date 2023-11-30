@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block title %}-添加文章{% endblock %}
+
+{% block body %}
+    <div class="container">
+         {% for article in data %}
+  <div class="row article_mange">
+
+    <div class="col-sm-8"><a href="{{ article.id }}">{{ article.article_title }}</a></div>
+    <div class="col-sm-4"> <a style="float: right" href="/article/update/{{ article.id }}">修改</a> <a style="float: right" href="/article/delete/{{ article.id }}">删除</a></div>
+  </div>
+                    {% endfor %}
+
+{% endblock %}

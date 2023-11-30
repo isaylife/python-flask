@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block title %}-添加文章{% endblock %}
+
+{% block body %}
+
+{% for article in articles %}
+<div class="article-info">
+    <div class="article-title">
+        {{ article.article_title }}
+        <div class="article-user">
+            作者:{{ article.username }}
+            时间:{{ article.article_time }}
+        </div>
+    </div>
+    <div class="content">
+        {{ article.article_content }}
+    </div>
+</div>
+                    {% endfor %}
+{% endblock %}

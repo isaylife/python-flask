@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block title %}-添加文章{% endblock %}
+
+{% block body %}
+        <form  method="POST" action="{{ url_for('article.article_add') }}">
+    <div class="article-add">
+        <div class="add-title">
+            <div class="form-group">
+                <label for="ControlInput"><b>标题</b></label>
+    <input type="text" class="form-control" id="ControlInput" name="article_title">
+  </div>
+        </div>
+        <div class="add-content">
+            <div class="form-group">
+                <label for="ControlTextarea"><b>内容</b></label>
+    <textarea class="form-control" id="ControlTextarea" rows="5" name="article_content"></textarea>
+
+            </div>
+        </div>
+    </div>
+              <button type="submit" class="btn btn-success float-right">提交</button>
+        </form>
+
+{% endblock %}
