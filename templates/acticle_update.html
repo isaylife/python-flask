@@ -6,21 +6,23 @@
 {% block title %}-添加文章{% endblock %}
 
 {% block body %}
-    <div class="row mt-4">
-            <div class="col">
-                {% for article in articles %}
-                <form method="POST" action="">
-                    <div class="form-group">
-                        <label for="InputTitle">标题</label>
-                        <input type="text" class="form-control" name="article_title" value="{{ article.article_title }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="InputContent">内容</label>
-                        <input type="text"  class="form-control atricle_content"  id="InputContent" name="article_content" value="{{ article.article_content }}">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">发布文章</button>
-                </form>
-                {% endfor %}
+{% for article in articles %}
+        <form method="POST" action="">
+        <div class="article-add">
+            <div class="add-title">
+                <div class="form-group">
+                    <label for="ControlInput"><b>标题</b></label>
+                    <input type="text" class="form-control" id="ControlInput" name="article_title" value="{{ article.article_title }}">
+                </div>
+            </div>
+            <div class="add-content">
+                <div class="form-group">
+                    <label for="ControlTextarea"><b>内容</b></label>
+                    <textarea class="form-control article-content-input" id="blogEditor" rows="10" name="article_content">{{ article.article_content }}</textarea>
+                </div>
             </div>
         </div>
+        <button type="submit" class="btn btn-success float-right">提交</button>
+    </form>
+            {% endfor %}
 {% endblock %}

@@ -8,18 +8,32 @@
 
 {% block body %}
 
-{% for article in articles %}
-<div class="article-info">
-    <div class="article-title">
-        {{ article.article_title }}
-        <div class="article-user">
-            作者:{{ article.username }}
-            时间:{{ article.article_time }}
+    {% for article in articles %}
+        <div class="article-info">
+            <div class="article-title">
+                {{ article.article_title }}
+                <div class="article-user">
+                    作者:{{ article.username }}
+                    时间:{{ article.article_time }}
+                </div>
+            </div>
+            <div class="content">
+                {{ html_content |safe }}
+            </div>
+         <div class="review">
+                <h4>评论</h4>
+             <div class="review-content">
+                 <p>一条评论</p>
+                 <p>一条评论</p>
+                 <p>一条评论</p>
+                 <p>一条评论</p>
+                 <p>一条评论</p>
+                 <p>一条评论</p>
+
+             </div>
+            </div>
+
         </div>
-    </div>
-    <div class="content">
-        {{ article.article_content }}
-    </div>
-</div>
-                    {% endfor %}
+
+    {% endfor %}
 {% endblock %}

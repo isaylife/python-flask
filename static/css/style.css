@@ -1,74 +1,111 @@
+body{
+    margin-top: 5px;
+    background-color: #f3f3f3;
+}
 a {
     color: inherit;
     text-decoration: none;
 }
-a:hover{
-     color: inherit;
+
+a:hover {
+    color: inherit;
     text-decoration: none;
 }
+
 .article_mange {
     padding: 10px;
     margin-top: 15px;
     background-color: #b3d7ff;
 }
+
 .article_mange a {
     padding: 5px;
 }
-.body-info{
+
+.body-info {
     padding-top: 10px;
 }
-.acticle_info{
+
+.acticle_info {
     margin-top: 15px;
     padding: 15px;
     background-color: #f3f3f3;
 }
-.user_info img{
-    height: 40px;
-    width: 40px;
-}
+
 .img-thumbnail {
     border-radius: 5px;
     height: 40px;
     width: 40px;
 }
+
 /*首页文章*/
-.body-info .card-title{
+.body-info .card-title {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.body-info .card-content{
+
+.body-info .card-content {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
+
 /*#主页文章作者和时间*/
-.user-info{
+.user-info {
     margin: 20px;
 }
+/*用户修改*/
+.update-user img {
+    margin: 15px;
+    height: 80px;
+    width: 80px;
+}
 /*文章添加*/
-.article-add{
+.article-add {
+}
+/*文章管理部分*/
+
+/*全部*/
+.article-mange{
+    margin-top: 15px;
+
+}
+/*每篇文章*/
+.article-alone{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #b3d7ff;
+    margin-top: 15px;
+    padding: 10px;
+}
+/*文章修改*/
+.article-content-input{
 }
 /*文章详情*/
-.article-info{
+.article-info {
+    margin-top: 15px;
     padding: 15px;
-    background-color: pink;
+    background-color: #ffffff;
 }
+
 .article-title {
-    background-color: #D0D0D0;
     padding: 20px;
     font-size: 24px;
     font-weight: bold;
     overflow: hidden;
 }
-.article-info .content{
+
+.article-info .content {
     text-indent: 2em;
     padding: 20px;
-    background-color: #D0D0D0;
     margin-top: 15px;
     font-size: 24px;
 }
-.article-user{
+
+.article-user {
     font-weight: normal;
     font-size: 18px;
     display: block;

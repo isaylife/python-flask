@@ -6,26 +6,68 @@
 {% block title %}-个人信息页{% endblock %}
 
 {% block body %}
- {% for info in data  %}
-     <div class="user_info">
-     <form method="POST" action="{{ url_for('board.upload_avatar') }}"  enctype="multipart/form-data">
-         {% if info.avatar %}
-        <label for="Uploadfile"><img src="{{ url_for('static',filename='images/') }}{{info.avatar}}">{{ info.username }}</label>
-         {% else %}
-          <label for="Uploadfile"><img src="{{ url_for('static',filename='images/') }}avatar.jpg"></label>
-         {% endif  %}
-            <input type="file" id="file" name="file">
-                <button type="submit">修改头像</button>
-        </form>
-                <div class="info-ul">
-                    <form method="POST" action="{{ url_for('board.user_info_update') }}">
-                        <label for="Updatename">用户名:{{ info.username }}</label>
-                        <input type="username" id="username" name="username">
-                        <button type="submit" >修改用户名</button>
-                        </form>
-                    <div class="info-name">邮箱:{{ info.email }}</div>
-                    <div class="info-time">注册时间:{{ info.create_time }}</div>
-                        </div>
-                        {% endfor %}
-    </div>
+    {% for info in data %}
+{#        更新头像#}
+        <div class="update-user">
+            <img src="{{ url_for('static',filename='images/') }}{{ info.avatar }}" class="rounded mx-auto d-block">
+
+        <div class="username-inof">
+            <div class="card">
+                <div class="card-body">
+                     用户名:{{ info.username }}
+                </div>
+                <div class="card-body">
+                     邮箱:{{ info.email }}
+                </div>
+                <div class="card-body">
+                     注册时间:{{ info.create_time }}
+                </div>
+            </div>
+        </div>
+        </div>
+            <form method="POST" action="{{ url_for('board.user_info_update') }}">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="修改用户名" aria-label="Recipient's username" aria-describedby="button-addon2"  name="username">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Button</button>
+                    </div>
+                </div>
+            </form>
+{#            修改头像#}
+            <form method="post" action="{{ url_for('board.upload_avatar') }}" enctype="multipart/form-data">
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <input for="Uploadfile" type="file" class="custom-file-input" id="Uploadfile" name="file">
+                        <label class="custom-file-label" for="Uploadfile">选择图片</label>
+                    </div>
+                    <div class="input-group-append">
+                        <button type="submit" class="input-group-text">修改头像</button>
+                    </div>
+                </div>
+            </form>
+
+    {% endfor %}
+    {#    {% for info in data %}#}
+    {#        <div class="user_info">#}
+    {#        <form method="POST" action="{{ url_for('board.upload_avatar') }}" enctype="multipart/form-data">#}
+    {#            {% if info.avatar %}#}
+    {#                <label for="Uploadfile"><img#}
+    {#                        src="{{ url_for('static',filename='images/') }}{{ info.avatar }}">{{ info.username }}</label>#}
+    {#            {% else %}#}
+    {#                <label for="Uploadfile"><img src="{{ url_for('static',filename='images/') }}avatar.jpg"></label>#}
+    {#            {% endif %}#}
+    {#            <input type="file" id="file" name="file">#}
+    {#            <button type="submit">修改头像</button>#}
+    {#        </form>#}
+    {#        <div class="info-ul">#}
+    {#            <form method="POST" action="{{ url_for('board.user_info_update') }}">#}
+    {#                <label for="Updatename">用户名:{{ info.username }}</label>#}
+    {#                <input type="username" id="username" name="username">#}
+    {#                <button type="submit">修改用户名</button>#}
+    {#            </form>#}
+    {#            <div class="info-name">邮箱:{{ info.email }}</div>#}
+    {#            <div class="info-time">注册时间:{{ info.create_time }}</div>#}
+    {#        </div>#}
+    {#    {% endfor %}#}
+    {#</div>#}
 {% endblock %}

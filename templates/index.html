@@ -7,27 +7,30 @@
 {% block body %}
     {% for article in data %}
         <div class="body-info">
-        <a href="article/{{ article.id }}"
+            <a href="article/{{ article.id }}"
             <a class="card mb-3 card-info">
                 <div href="/article/{{ article.id }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ article.article_title }}</h5>
                         <p class="card-content">{{ article.article_content }}</p>
-                         <div class="user-info float-right">
-                    <p class="card-text">
-{#                    控制头像#}
-                        {% if article.avatar %}
-                        <img class="img-thumbnail" src="{{ url_for('static',filename='images/') }}{{ article.avatar }}">
-                        {% else %}
-                        <img class="img-thumbnail" src="{{ url_for('static',filename='images/') }}avatar.jpg">
-                        {% endif %}
-                        <small class="text-muted"><b>作者:{{ article.author_username }}</b></small></p>
-                             <p class="card-text"><small class="text-muted"><b>创建时间:{{ article.article_time }}</b></small></p>
-                    </div>
+                        <div class="user-info float-right">
+                            <p class="card-text">
+                                {#                    控制头像#}
+                                {% if article.avatar %}
+                                    <img class="img-thumbnail"
+                                         src="{{ url_for('static',filename='images/') }}{{ article.avatar }}">
+                                {% else %}
+                                    <img class="img-thumbnail"
+                                         src="{{ url_for('static',filename='images/') }}avatar.jpg">
+                                {% endif %}
+                                <small class="text-muted"><b>作者:{{ article.author_username }}</b></small></p>
+                            <p class="card-text"><small
+                                    class="text-muted"><b>创建时间:{{ article.article_time }}</b></small></p>
+                        </div>
                     </div>
                 </div>
             </a>
-            </div>
+        </div>
         </div>
 
 
