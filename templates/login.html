@@ -9,7 +9,7 @@
     <div class="row mt-4">
         <div class="col"></div>
         <div class="col">
-            <form action="{{ url_for('auth.login') }}" method="POST">
+            <form action="{{ url_for('auth.login') }}" method="POST" onsubmit="return LoginvalidateForm()">
                 <div class="form-group">
                     <p>{{ error }}</p>
                     <label for="exampleInputusername">用户名</label>

@@ -9,8 +9,11 @@
     {% for info in data %}
 {#        更新头像#}
         <div class="update-user">
+        {% if info.avatar %}
             <img src="{{ url_for('static',filename='images/') }}{{ info.avatar }}" class="rounded mx-auto d-block">
-
+            {% else %}
+            <img src="{{ url_for('static',filename='images/') }}avatar.jpg" class="rounded mx-auto d-block">
+            {% endif %}
         <div class="username-inof">
             <div class="card">
                 <div class="card-body">

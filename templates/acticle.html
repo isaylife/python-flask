@@ -8,7 +8,6 @@
 
 {% block body %}
 
-    {% for article in articles %}
         <div class="article-info">
             <div class="article-title">
                 {{ article.article_title }}
@@ -18,22 +17,50 @@
                 </div>
             </div>
             <div class="content">
-                {{ html_content |safe }}
+                {{ article_content | safe}}
             </div>
-         <div class="review">
-                <h4>评论</h4>
-             <div class="review-content">
-                 <p>一条评论</p>
-                 <p>一条评论</p>
-                 <p>一条评论</p>
-                 <p>一条评论</p>
-                 <p>一条评论</p>
-                 <p>一条评论</p>
-
-             </div>
+            <div class="riview-content">
+    <form method="post" action="{{ url_for('article.view_article',article_id=article.id )}}" id="new_comment_form">
+  <div class="form-group">
+    <label for="text">内容</label>
+      <input type="hidden" name="parent_id" id="parent_id" value="">
+    <input type="text" id="review_content" placeholder="" class="form-control" name="review_content">
+      <small id="review_content_error" class="text-danger"></small>
+  </div>
+   <button type="button" class="btn btn-primary" onclick="validateAndSubmit()">发表新评论</button>
+</form>
             </div>
+{#        评论区#}
 
+
+        <div class="card">
+  <div class="card-header">
+    <h4>评论({{ comments | length }})条</h4>
+  </div>
+{#        评论内容#}
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    {% for comment in comments %}
+                        <div class="reply bg-info" id="comment_{{ comment.id }}">
+                            <p> <b>{{ comment.review_content }}</b>
+{#                                回复按钮#}
+                                <a href="" class="reply-btn" data-target="{{ comment.id }}">回复评论</a>
+                                <span class="float-right">{{ comment.review_time }}</span>
+                            </p>
+                        <div class="reply-content">
+                            {% for reply in comment.replies %}
+                            <p>{{  reply.review_content  }}</p>
+                                <div class="reply-time">
+                                <i class="bi bi-alarm">     Time:{{  reply.review_time  }}</i>
+
+                                </div>
+                                {% endfor %}
+                        </div>
+                        </div>
+                 {% endfor %}
+                </blockquote>
+
+            </div>
         </div>
-
-    {% endfor %}
+    </div>
 {% endblock %}

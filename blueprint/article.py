@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for, g
 from decorators import login_required
 from exts import db
-from models import Article
+from models import Article,Review_content
+import markdown2
 
 bp = Blueprint('article', __name__)
 
@@ -54,14 +55,28 @@ def article_page():
     all_article = Article.query.filter_by(article_author=g.user.id).all()
     return render_template('acticle_page.html', data=all_article)
 
-
-# 文章详情页
-@bp.route('/<int:post_id>')
-def article(post_id):
-    data = Article.query.filter_by(id=post_id)
-    return render_template('index.html',articles=data)
-
-
+#发表评论和回复评论
+@bp.route('/<int:article_id>',methods=['POST','GET'])
+def view_article(article_id):
+    if request.form.get('review_content'):
+        if request.method == 'POST':
+            form = request.form
+            review_content = form.get('review_content')
+            parent_id = form.get('parent_id')
+            parent_id = int(parent_id) if parent_id else None
+            new_review = Review_content(
+                review_content=review_content,
+                article_id=article_id,
+                parent_id = parent_id
+            )
+            db.session.add(new_review)
+            db.session.commit()
+            return redirect(url_for('article.view_article',article_id=article_id))
+    #查询文章
+    article = Article.query.get(article_id)
+    article_content = markdown2.markdown(article.article_content)
+    comments = Review_content.query.filter_by(article_id=article_id,parent_id=None).all()
+    return render_template('acticle.html',article=article,comments=comments,article_content=article_content)
 # 搜索实现
 @bp.route('')
 def search():
