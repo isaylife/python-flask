@@ -16,8 +16,9 @@
 等过几年来看肯定会尬死我。没办法能力有限
 # 预览图
 
-![](http://)
-![](http://)
+![](https://github.com/isaylife/python_blog/blob/master/images/1.jpg)
+![](https://github.com/isaylife/python_blog/blob/master/images/2.jpg)
+![](https://github.com/isaylife/python_blog/blob/master/images/3.jpg)
 ## 后端Python+Flask
 ## 前端使用的是Bootstrap 
 
